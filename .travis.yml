@@ -1,17 +1,317 @@
 jobs:
   include:
-    - name: Windows Node JS
+#     - name: Linux Focal Python
+#       os: linux
+#       dist: focal
+#       language: python
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - python hello_world.py
+#         - cd python
+#         - pip install -r requirements.txt
+#     - name: Linux Jammy Python
+#       os: linux
+#       dist: jammy
+#       language: python
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - python hello_world.py
+#         - cd python
+#         - pip install -r requirements.txt
+#     - name: Linux Xenial Python
+#       os: linux
+#       dist: xenial
+#       language: python
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - python hello_world.py
+#         - cd python
+#         - pip install -r requirements.txt
+#     - name: Linux Bionic Python
+#       os: linux
+#       dist: bionic
+#       language: python
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - python hello_world.py
+#         - cd python
+#         - pip install -r requirements.txt
+    - name: Windows Python
       os: windows
-      language: node_js
+      language: python
       addons:
         sbom:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_failure
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
-        - cd node
-#         - npm install
-        - node hello_world.js
+        - python hello_world.py
+        - cd python
+        - pip install -r requirements.txt
+        
+#     - name: Linux Focal Java
+#       os: linux
+#       dist: focal
+#       language: java
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - javac hello_world.java
+#         - java HelloWorld
+#     - name: Linux Jammy Java
+#       os: linux
+#       dist: jammy
+#       language: java
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - javac hello_world.java
+#         - java HelloWorld
+#     - name: Linux Xenial Java
+#       os: linux
+#       dist: xenial
+#       language: java
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - javac hello_world.java
+#         - java HelloWorld
+#     - name: Linux Bionic Java
+#       os: linux
+#       dist: bionic
+#       language: java
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - javac hello_world.java
+#         - java HelloWorld
+    - name: Windows Java
+      os: windows
+      language: java
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: before_script
+          output_format: cyclonedx-xml
+        mariadb: '10.0'
+      script:
+        - javac hello_world.java
+        - java HelloWorld
+    - name: FreeBSD Java
+      os: freebsd
+      language: java
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: before_script
+          output_format: cyclonedx-xml
+        mariadb: '10.0'
+      script:
+        - javac hello_world.java
+        - java HelloWorld
+        
+#     - name: Linux Focal Ruby
+#       os: linux
+#       dist: focal
+#       language: ruby
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - gem build ./ruby/hello_world.gemspec
+#     - name: Linux Jammy Ruby
+#       os: linux
+#       dist: jammy
+#       language: ruby
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - gem build ./ruby/hello_world.gemspec
+#     - name: Linux Xenial Ruby
+#       os: linux
+#       dist: xenial
+#       language: ruby
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - gem build ./ruby/hello_world.gemspec
+#     - name: Linux Bionic Ruby
+#       os: linux
+#       dist: bionic
+#       language: ruby
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - gem build ./ruby/hello_world.gemspec
+    - name: Windows Ruby
+      os: windows
+      language: ruby
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: before_script
+          output_format: cyclonedx-xml
+        mariadb: '10.0'
+      script:
+        - gem build ./ruby/hello_world.gemspec
+        
+#     - name: Linux Focal Go
+#       os: linux
+#       dist: focal
+#       language: go
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - cd go
+#         - go build
+#     - name: Linux Jammy Go
+#       os: linux
+#       dist: jammy
+#       language: go
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - cd go
+#         - go build
+#     - name: Linux Xenial Go
+#       os: linux
+#       dist: xenial
+#       language: go
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - cd go
+#         - go build
+#     - name: Linux Bionic Go
+#       os: linux
+#       dist: bionic
+#       language: go
+#       addons:
+#         sbom:
+#           on:
+#             branch: main
+#             condition: $OS = linux
+#           run_phase: before_script
+#           output_format: cyclonedx-xml
+#         mariadb: '10.0'
+#       script:
+#         - cd go
+#         - go build
+    - name: Windows Ruby
+      os: windows
+      language: go
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: before_script
+          output_format: cyclonedx-xml
+        mariadb: '10.0'
+      script:
+        - cd go
+        - go build
+        
+  
