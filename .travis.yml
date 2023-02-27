@@ -10,7 +10,7 @@ jobs:
       addons:
         sbom:
           on:
-            branch: sbom_one
+            branch: main
             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
@@ -28,7 +28,7 @@ jobs:
       addons:
         sbom:
           on:
-            branch: sbom_one
+            branch: main
             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
@@ -44,7 +44,7 @@ jobs:
       addons:
         sbom:
           on:
-            branch: sbom_one
+            branch: main
             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
@@ -60,7 +60,7 @@ jobs:
       addons:
         sbom:
           on:
-            branch: sbom_one
+            branch: main
             condition: $OS = linux
           run_phase: after_success
           output_format: cyclonedx-xml
