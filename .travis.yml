@@ -9,7 +9,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -27,7 +27,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -43,7 +43,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -59,7 +59,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -71,9 +71,6 @@ jobs:
       os: linux
       dist: focal
       language: java
-      jdk:
-        - openjdk8
-        - openjdk11
       addons:
         sbom:
           on:
@@ -89,15 +86,12 @@ jobs:
       os: linux
       dist: jammy
       language: java
-      jdk:
-        - openjdk8
-        - openjdk11
       addons:
         sbom:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -107,9 +101,6 @@ jobs:
       os: linux
       dist: xenial
       language: java
-      jdk:
-        - openjdk8
-        - openjdk11
       addons:
         sbom:
           on:
@@ -125,15 +116,12 @@ jobs:
       os: linux
       dist: bionic
       language: java
-      jdk:
-        - openjdk8
-        - openjdk11
       addons:
         sbom:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -149,7 +137,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -163,7 +151,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -177,7 +165,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -191,7 +179,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -206,7 +194,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -221,7 +209,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -236,7 +224,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -251,7 +239,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -265,7 +253,7 @@ jobs:
 #           on:
 #             branch: main
 #             condition: $OS = linux
-#           run_phase: after_success
+#           run_phase: before_script
 #           output_format: cyclonedx-xml
 #         mariadb: '10.0'
 #       script:
@@ -281,7 +269,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -297,7 +285,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -313,7 +301,7 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
@@ -329,27 +317,27 @@ jobs:
           on:
             branch: main
             condition: $OS = linux
-          run_phase: after_success
+          run_phase: before_script
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
         - cd node
         - npm install
         - node hello_world.js
-#     - name: Windows Node JS (not working)
-#       os: windows
-#       language: node_js
-#       addons:
-#         sbom:
-#           on:
-#             branch: main
-#             condition: $OS = linux
-#           run_phase: before_script
-#           output_format: cyclonedx-xml
-#         mariadb: '10.0'
-#       script:
-#         - cd node
-#         - npm install
-#         - node hello_world.js
+    - name: Windows Node JS (not working)
+      os: windows
+      language: node_js
+      addons:
+        sbom:
+          on:
+            branch: main
+            condition: $OS = linux
+          run_phase: before_script
+          output_format: cyclonedx-xml
+        mariadb: '10.0'
+      script:
+        - cd node
+        - npm install
+        - node hello_world.js
         
   
