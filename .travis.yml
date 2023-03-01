@@ -31,11 +31,12 @@ jobs:
           skip_cleanup: true
           upload_dir: 'php/'
           on:
-            branch: sbom_one
+            branch: main
         mariadb: '10.0'
       script:
-        - php hello_world.php
         - cd php
+        - php hello_world.php
+        
         
     - name: Linux Jammy PHP
       os: linux
