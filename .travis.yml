@@ -22,7 +22,7 @@ jobs:
           token: $GHTOKEN
           cleanup: true
           on:
-            branch: main
+            branch: sbom_one
         - provider: s3
           access_key_id: $ACCESS_KEY_ID
           secret_access_key: $ACCESS_KEY_SECRET
@@ -34,6 +34,7 @@ jobs:
             branch: main
         mariadb: '10.0'
       script:
+        - cd php
         - php hello_world.php
         
         
