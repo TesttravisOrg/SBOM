@@ -1,9 +1,12 @@
 jobs:
   include:
-    - name: Linux Focal Python
+    - name: Linux Focal PHP
       os: linux
       dist: focal
-      language: python
+      language: php
+      php:
+        - '8.0.21'
+      arch: amd64
       addons:
         sbom:
           on:
@@ -13,15 +16,15 @@ jobs:
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
-        - python hello_world.py
-        - cd python
-        - pip install -r requirements.txt
-    - name: Linux Jammy Python
+        - php hello_world.php
+        
+    - name: Linux Jammy PHP
       os: linux
       dist: jammy
-      language: python
-      python:
-        - "3.9"
+      language: php
+      php:
+        - '8.2.0'
+      arch: amd64
       addons:
         sbom:
           on:
@@ -31,13 +34,13 @@ jobs:
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
-        - python hello_world.py
-        - cd python
-        - pip install -r requirements.txt
-    - name: Linux Xenial Python
+        - php hello_world.php
+    
+    - name: Linux Xenial PHP
       os: linux
       dist: xenial
-      language: python
+      language: php
+      arch: amd64
       addons:
         sbom:
           on:
@@ -47,13 +50,13 @@ jobs:
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
-        - python hello_world.py
-        - cd python
-        - pip install -r requirements.txt
-    - name: Linux Bionic Python
+        - php hello_world.php
+        
+    - name: Linux Bionic PHP
       os: linux
       dist: bionic
-      language: python
+      language: php
+      arch: amd64
       addons:
         sbom:
           on:
@@ -63,252 +66,5 @@ jobs:
           output_format: cyclonedx-xml
         mariadb: '10.0'
       script:
-        - python hello_world.py
-        - cd python
-        - pip install -r requirements.txt
-        
-    - name: Linux Focal Java
-      os: linux
-      dist: focal
-      language: java
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - javac hello_world.java
-        - java HelloWorld
-    - name: Linux Jammy Java
-      os: linux
-      dist: jammy
-      language: java
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - javac hello_world.java
-        - java HelloWorld
-    - name: Linux Xenial Java
-      os: linux
-      dist: xenial
-      language: java
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - javac hello_world.java
-        - java HelloWorld
-    - name: Linux Bionic Java
-      os: linux
-      dist: bionic
-      language: java
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - javac hello_world.java
-        - java HelloWorld
-        
-    - name: Linux Focal Ruby
-      os: linux
-      dist: focal
-      language: ruby
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - gem build ./ruby/hello_world.gemspec
-    - name: Linux Jammy Ruby
-      os: linux
-      dist: jammy
-      language: ruby
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - gem build ./ruby/hello_world.gemspec
-    - name: Linux Xenial Ruby
-      os: linux
-      dist: xenial
-      language: ruby
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - gem build ./ruby/hello_world.gemspec
-    - name: Linux Bionic Ruby
-      os: linux
-      dist: bionic
-      language: ruby
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - gem build ./ruby/hello_world.gemspec
-        
-    - name: Linux Focal Go
-      os: linux
-      dist: focal
-      language: go
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd go
-        - go build
-    - name: Linux Jammy Go
-      os: linux
-      dist: jammy
-      language: go
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd go
-        - go build
-    - name: Linux Xenial Go
-      os: linux
-      dist: xenial
-      language: go
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd go
-        - go build
-    - name: Linux Bionic Go
-      os: linux
-      dist: bionic
-      language: go
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd go
-        - go build
-        
-    - name: Linux Focal Node JS
-      os: linux
-      dist: focal
-      language: node_js
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd node
-        - npm install
-        - node hello_world.js
-    - name: Linux Jammy Node JS
-      os: linux
-      dist: jammy
-      language: node_js
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd node
-        - npm install
-        - node hello_world.js
-    - name: Linux Xenial Node JS
-      os: linux
-      dist: xenial
-      language: node_js
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd node
-        - npm install
-        - node hello_world.js
-    - name: Linux Bionic Node JS
-      os: linux
-      dist: bionic
-      language: node_js
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: script
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - cd node
-        - npm install
-        - node hello_world.js
-        
-  
+        - php hello_world.php
+      
