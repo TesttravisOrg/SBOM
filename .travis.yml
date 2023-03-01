@@ -34,7 +34,6 @@ jobs:
             branch: main
         mariadb: '10.0'
       script:
-        - cd php
         - php hello_world.php
         
         
