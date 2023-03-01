@@ -1,86 +1,10 @@
-jobs:
-  include:
-    - name: Linux Focal PHP
-      os: linux
-      dist: focal
-      language: php
-      php:
-        - '8.0.21'
-      arch: amd64
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: after_success
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - php hello_world.php
-        
-    - name: Linux Jammy PHP
-      os: linux
-      dist: jammy
-      language: php
-      php:
-        - '8.2.0'
-      arch: amd64
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: after_success
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - php hello_world.php
-    
-    - name: Linux Xenial PHP
-      os: linux
-      dist: xenial
-      language: php
-      arch: amd64
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: after_success
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - php hello_world.php
-        
-    - name: Linux Bionic PHP
-      os: linux
-      dist: bionic
-      language: php
-      arch: amd64
-      addons:
-        sbom:
-          on:
-            branch: main
-            condition: $OS = linux
-          run_phase: after_success
-          output_format: cyclonedx-xml
-        mariadb: '10.0'
-      script:
-        - php hello_world.php
-        
-#     - name: Windows PHP (skipping)
-#       os: windows
-#       language: php
-#       php:
-#         - '7.3.32'
-#       arch: amd64
-#       addons:
-#         sbom:
-#           on:
-#             branch: main
-#             condition: $OS = linux
-#           run_phase: before_script
-#           output_format: cyclonedx-xml
-#         mariadb: '10.0'
-#       script:
-#         - php hello_world.php
+os: linux
+dist: focal
+language: python
+addons: 
+  - sbom:
+      on:
+        branch: main
+  - mariadb
+script:
+  - python hello_world.py
